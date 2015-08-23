@@ -13,8 +13,8 @@
         <div class="panel-heading">
           <h3 class="panel-title">My Wikis</h3>
           
-          <div class="pull-left">
-          </div>
+        <!--   <div class="pull-left">
+          </div> -->
     
         </div>
       </div>
@@ -25,6 +25,7 @@
             <tr>
               <th>Title</th>
               <th>Body</th>
+              <th>Show</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
@@ -33,8 +34,9 @@
           <tbody>
             <% @wikis.each do |wiki| %>
               <tr id=<%= "task-#{wiki.id}" %>>
-                <td><%= wiki.title %></td>
-                <td><%= wiki.body %></td>
+                <td><%= markdown_to_html wiki.title %></td>
+                <td><%= markdown_to_html wiki.body %></td>
+                <td><%= link_to("Show",  wiki_path(wiki) ) %></td>
                 <td><%= link_to("Edit",  edit_wiki_path(wiki) ) %></td>
                 <td><%= link_to("Delete", wiki, method: :delete) %></td>
               </tr>

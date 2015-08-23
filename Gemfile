@@ -56,6 +56,8 @@ gem 'fog'
 # Pagination of Topics
 gem 'will_paginate'
 
+gem 'redcarpet'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

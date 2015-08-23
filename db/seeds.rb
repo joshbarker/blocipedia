@@ -30,12 +30,12 @@
  admin.skip_confirmation!
  admin.save!
  
- # Create a moderator
+ # Create a premium user
  moderator = User.new(
-   name:     'Moderator User',
-   email:    'moderator@example.com',
+   name:     'Premium User',
+   email:    'premium@example.com',
    password: 'helloworld',
-   role:     'moderator'
+   role:     'premium'
  )
  moderator.skip_confirmation!
  moderator.save!
@@ -51,7 +51,7 @@
 
 
 # Create Wikis
- 50.times do
+ 10.times do
    Wiki.create!(
      user:   users.sample,
      title:  Faker::Lorem.sentence,

@@ -6,11 +6,23 @@ class User < ActiveRecord::Base
 
   has_many :wikis
 
+  # after_initialize :defaults
+
+  # def defaults
+  #   self.role ||= 'standard'
+  # end
+
   def admin?
    role == 'admin'
   end
  
-  def moderator?
-   role == 'moderator'
+  def premium?
+   role == 'premium'
   end
+
+  def standard?
+   role == 'standard'
+  end
+
+
 end
