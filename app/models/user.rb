@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
 
   has_many :wikis
 
-  # after_initialize :defaults
+  after_initialize :defaults
 
-  # def defaults
-  #   self.role ||= 'standard'
-  # end
+  def defaults
+    self.role ||= 'standard'
+  end
 
   def admin?
    role == 'admin'
