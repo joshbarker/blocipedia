@@ -4,9 +4,9 @@
    <div class="col-md-4">
      <p>Guidelines for Wiki</p>
      <ul>
-       <li>Add Rules</li>
-       <li>Add Instructions</li>
-       <li>Add Example</li>
+       <li>Collaborate on Wikis</li>
+       <li>Blocipedia Supports Markdown</li>
+       <li>Ugrade to Premium to add collaborators</li>
      </ul>
    </div>
    <div class="col-md-8">
@@ -20,8 +20,14 @@
          <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
        </div>
        <div class="form-group">
+          <%= f.label :private, class: 'checkbox' %>
+          <%= f.check_box :private %> Private Wiki
+        </div>
+       <div class="form-group">
          <%= f.submit "Save", class: 'btn btn-success' %>
        </div>
+
+
      <% end %>
    </div>
  </div>

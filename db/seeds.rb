@@ -19,6 +19,13 @@
    password: 'jlbsk811'
  )
 
+user = User.second
+ user.skip_reconfirmation!
+ user.update_attributes!(
+   email: 'someemail@email.com',
+   password: 'helloworld'
+ )
+
 
  # Create an admin
  admin = User.new(

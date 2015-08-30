@@ -1,11 +1,30 @@
-<h1>Input Domain</h1>
 
-<%= form_for @wiki do |f| %>
-   <%= f.label :title %>
-   <%= f.text_field :title %>
- 
-   <%= f.label :body %>
-   <%= f.text_field :body %>
- 
-   <%= f.submit "Save" %>
- <% end %>
+ <div class="row">
+   <div class="col-md-4">
+     <p>Guidelines for Wikis:</p>
+     <ol>
+       <li>Collaborate on Wikis</li>
+       <li>Blocipedia Supports Markdown</li>
+       <li>Ugrade to Premium to add collaborators</li>
+     </ol>
+   </div>
+   <div class="col-md-8">
+     <%= form_for @wiki do |f| %>
+       <div class="form-group">
+         <%= f.label :title %>
+         <%= f.text_field :title, class: 'form-control', placeholder: "Enter wiki title2" %>
+       </div>
+       <div class="form-group">
+         <%= f.label :body %>
+         <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
+       </div>
+       <div class="form-group">
+          <%= f.label :private, class: 'checkbox' %>
+          <%= f.check_box :private %> Private Wiki
+        </div>
+       <div class="form-group">
+         <%= f.submit "Save", class: 'btn btn-success' %>
+       </div>
+      <% end %>
+   </div>
+ </div>

@@ -1,16 +1,15 @@
-<h4 class="media-heading">
+<div class="panel-heading">
 
-
-<h1><%= markdown_to_html @wiki.title %></h1>
-
-
- <h4 class="media-heading">
 
  <% if policy(@wiki).edit? %>
    <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
  <% end %>
 
  <%= link_to "Back", wikis_path(@wiki), class: 'btn btn-primary' %>
+<h4 class="media-heading">
 
+<h1><%= markdown_to_html @wiki.title %></h1>
 
 <p><%= markdown_to_html @wiki.body %></p>
+
+
