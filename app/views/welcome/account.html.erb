@@ -1,0 +1,15 @@
+<h2>Manage My Account</h2> 
+
+<h3> 
+
+  <% if current_user && current_user.role == 'standard' %>
+    <%= link_to "Upgrade", new_charge_path, class: 'btn btn-success' %>
+  <% else %>
+    <%= link_to "Downgrade", users_downgrade_path, class: 'btn btn-warning' %>
+  <% end %>
+
+Blocipedia Account</h3>
+
+<h3><%= link_to "Delete", user_registration_path, class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete %> Blocipedia Account </h3>
+
+<%= link_to "Back to Wikis", wikis_path, class: 'btn btn-primary' %>

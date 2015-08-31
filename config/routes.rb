@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   get 'welcome/about'
 
+  get 'welcome/account'
+
+  get 'users/downgrade'
+
   root to: 'welcome#index'
 
 end

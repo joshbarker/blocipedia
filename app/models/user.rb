@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :wikis
 
-  after_initialize :defaults
+  after_initialize :set_role
 
-  def defaults
+  def set_role
     self.role ||= 'standard'
   end
 
@@ -23,6 +23,5 @@ class User < ActiveRecord::Base
   def standard?
    role == 'standard'
   end
-
 
 end

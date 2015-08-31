@@ -23,7 +23,8 @@ user = User.second
  user.skip_reconfirmation!
  user.update_attributes!(
    email: 'someemail@email.com',
-   password: 'helloworld'
+   password: 'helloworld',
+   role: 'standard'
  )
 
 

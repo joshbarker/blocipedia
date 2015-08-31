@@ -1,7 +1,7 @@
 <!DOCTYPE html>
  <html>
    <head>
-     <title>Bloccit</title>
+     <title>Blocipedia</title>
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <%= stylesheet_link_tag    "application", media: "all" %>
      <%= javascript_include_tag "application" %>
@@ -10,12 +10,26 @@
    <body>
      <div class="container">
        <ul class="nav nav-tabs">
-         <li><%= link_to "Bloccit", root_path %></li>
+         <li>
+          <% if current_user %>
+            <%= link_to "Home", wikis_path %> 
+          <% else %>
+            <%= link_to "Home", root_path %> 
+          <% end %>
+         </li>
          <li><%= link_to "About", welcome_about_path %></li>
 
         <div class="pull-right user-info">
            <% if current_user %>
-             Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+             Hello <%= current_user.email %>! 
+
+             <%= link_to "| My Account |", welcome_account_path %>
+             <%= link_to " Sign out |", destroy_user_session_path, method: :delete %>
+
+                <% if current_user.role == 'standard' %>
+                  <%= link_to "Upgrade to Premium", new_charge_path %> 
+                <% end %>
+      
            <% else %>
              <%= link_to "Sign In", new_user_session_path %> or
              <%= link_to "Sign Up", new_user_registration_path %>

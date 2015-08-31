@@ -28,13 +28,13 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
-    authorize @wiki
+    authorize @wiki    
   end
 
   def update
     @wiki = Wiki.find(params[:id])
     authorize @wiki
-    if @wiki.update_attributes(params.require(:wiki).permit(:title, :body))
+    if @wiki.update_attributes(wiki_params)
        flash[:notice] = "Wiki was updated."
        redirect_to wikis_path
     else
@@ -45,7 +45,8 @@ class WikisController < ApplicationController
 
   def destroy
     @wiki = Wiki.find(params[:id])
- 
+    authorize @wiki    
+
     if @wiki.destroy
       flash[:notice] = "Wiki was deleted successfully."
       redirect_to wikis_path
@@ -54,5 +55,12 @@ class WikisController < ApplicationController
       render :show
     end
    end
+
+
+private
+
+  def wiki_params
+      params.require(:wiki).permit(:title, :body, :private)
+  end  
 
 end

@@ -1,8 +1,18 @@
- <%= form_tag charges_path do %>
-   <h4>Click the button to upgrade to Premium Account!</h4>
-   <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" 
-           data-key="<%= @stripe_btn_data[:key] %>"
-           data-amount="1500" 
-           data-description="Enter Text Here" 
-           data-locale="auto"></script>
- <% end %>
+ 
+<% unless current_user.premium? %> 
+   <%= form_tag charges_path do %>
+     <h4>Click the button to upgrade to Premium Account!</h4>
+     <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" 
+             data-key="<%= @stripe_btn_data[:key] %>"
+             data-amount="1500" 
+             data-description="Enter Text Here" 
+             data-locale="auto"></script>
+   <% end %>
+
+<% else %>
+  <h2>Downgrade Account</h2>
+  <h4><br>Are you sure you want to cancel premium account on Blocipedia? <br><br>If you downgrade your account, your private wikis will become public.
+  </h4>
+  <br>
+  <%= link_to "Yes, downgrade my account", downgrade_path, class: 'btn btn-warning', data: { confirm: 'Are you sure you want to downgrade and make all your wikis public?' } %>
+<% end %>
