@@ -1,4 +1,6 @@
 class WikisController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @wikis = Wiki.visible_to(current_user).paginate(page: params[:page], per_page: 20)
   end
